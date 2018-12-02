@@ -20,9 +20,9 @@ Laura-C wants to embrace all natural languages, it's open-source principle allow
 
 #### Currently supported Languages ####
 
-- English :us: / :uk:
-- Japanese :jp:
-- German :de:
+- English  (eng) :us: / :uk:
+- Japanese (jpn) :jp: 
+- German (deu) :de: 
 - Portuguese (pt-br)
 
 ## Language Structure
@@ -36,6 +36,15 @@ This solution is an expansion in concept and lexer functionalities from the the 
 
 ## Running Laura-C Code (.lc)
 
+To run Laura-C code, use the **Makefile** available in the project repo and run the code to compile the right lexer and run the code using LLVM.
+
+To do so run:
+```
+make test lang=<selected_natural_language_code> file=<source_code_file_in_laura_c>
+```
+some example code is available in the "lang-tests" folder.
+
+**natural_language_code** are available in the **supported Languages** next to the language name.
 
 ## Why Laura-C?
 #### Laura (Given-name) ####
@@ -45,9 +54,9 @@ This PL takes the given-name **Laura** along with its variations depending on th
 This PL takes **C** on it's name because it is actually based on C programming. All syntax and functionalities are based on *C programming*. This is because the familiarity of people with this programming language can make it easier to find documentation and to ask someone with C experience. As well as importing libraries from previously developed C.
 
 ## Next-Step
-- Implement all functionalities of C
-- Import libraries
-- Easy translation script
+- Implement all missing functionalities of C Programming
+- Enable import libraries from C Programming code 
+- Easy cross NL translation script
 
 ## Reference
 
