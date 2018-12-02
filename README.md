@@ -30,19 +30,39 @@ Laura-C wants to embrace all natural languages, it's open-source principle allow
 ### Disclaimer and Proper Credits
 This solution is an expansion in concept and lexer functionalities from the the project: [Toy-C-Compiler-using-Flex-Bison-LLVM](https://github.com/sandeep007734/Toy-C-Compiler-using-Flex-Bison-LLVM) made by [@sandeep007734](https://github.com/sandeep007734). The principle was to increment the code by adding an innovative feature to the language.
 
-### Parser & Lexer
+### Lexer & Parser (Compiling)
 
-### LLVM
+**Flex** and **Bison** play the role of Lexer and Parser respectively in this solution.
+
+#### Flex ####
+ The **.l** files inside the /lang folder contain the different **Flex** files to identify the Tokens while reading the code.  every different Natural Languages has a specific Flex file as the thing that changes between them is simply the tokens parsing part. Every word association with a Token serves as base for the parsing part of compilation.
+
+ Same tokens have different words associated with them. Some examples of it are:
+ - if, wenn, se, もし (TOKEN_IF)
+ - do, mach, faz, 行う (TOKEN_DO)
+
+#### Bison ####
+ The **.y** file along with **node.h**, contain the **Bison** part of the solution. This is responsible for associating the Token sequence with the generation of the AST (Abstract syntax tree). Which will be responsible for the program structure and organization. The tree is created with the goal of while being evaluated execute the described commands. That serves as base for the execution using LLVM.
+
+### LLVM (Executing)
+
+Finally, the **codegen** files are responsible for the generation of code for LLVM. Using its library to provide a proper syntax to the execution of the generated files.
 
 ## Running Laura-C Code (.lc)
 
-To run Laura-C code, use the **Makefile** available in the project repo and run the code to compile the right lexer and run the code using LLVM.
+To run Laura-C code, use the **Makefile** wrapper available in the project repo and run the code to compile the right lexer and run the code using LLVM.
 
 To do so run:
 ```
 make test lang=<selected_natural_language_code> file=<source_code_file_in_laura_c>
 ```
 some example code is available in the "lang-tests" folder.
+
+Also, run:
+```
+make clean
+```
+to clean the generated files.
 
 **natural_language_code** are available in the **supported Languages** next to the language name.
 
